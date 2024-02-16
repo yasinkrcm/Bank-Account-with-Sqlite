@@ -1,4 +1,5 @@
 import sqlite3 as sql
+
 conn = sql.connect("Bankacc.db")
 cursor = conn.cursor()
 opendb = cursor.execute("""CREATE TABLE IF NOT EXISTS CLIENTS(
