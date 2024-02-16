@@ -1,6 +1,4 @@
 import sqlite3 as sql
-import os
-os.chdir("C:\\Users\yasin\OneDrive\Masaüstü\Python\Bank Account")
 conn = sql.connect("Bankacc.db")
 cursor = conn.cursor()
 opendb = cursor.execute("""CREATE TABLE IF NOT EXISTS CLIENTS(
@@ -28,7 +26,6 @@ def addAcc():
 """,(name,surname,AccNO,balance))
         conn.commit()
         conn.close()
-        os.startfile("bankacc.py")
 def bankacc():
         opendb
         clients
