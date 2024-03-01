@@ -78,16 +78,3 @@ while True:
         continue
     if islem =="5":
         break
-
-
-
-
-
-
-
-
-
-
-
-
-
