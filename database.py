@@ -1,7 +1,8 @@
 import sqlite3 as sql
 
+
 def connectDatabase():
-    conn = sql.connect("Bankacc.db")
+    conn = sql.connect("bankAcc.db")
     cursor = conn.cursor()
     return (conn , cursor)
 
@@ -25,13 +26,16 @@ def newUserInsert(name,surname,accNo,balance):
     conn.commit()
     conn.close()
 
-def fectDatas():
-    conn , cursor = connectDatabase()
-    clients= cursor.execute("SELECT * from CLIENTS")
-    clientsDatas = clients.fetchall()
-    conn.commit()
-    conn.close()
-    return clientsDatas
+def fetchDatas():
+    try:
+        conn , cursor = connectDatabase()
+        clients= cursor.execute("SELECT * from CLIENTS")
+        clientsDatas = clients.fetchall()
+        conn.commit()
+        conn.close()
+        return clientsDatas
+    except sql.OperationalError as e:
+        createTable()
 
 def updateBalance(newBalance,balance):
     conn , cursor = connectDatabase()
