@@ -2,7 +2,6 @@ from database import *
 
 class UserManagement:
     def checkUsers(self):
-        print(fetchDatas())
         if fetchDatas() == [] or fetchDatas() == None :
             print("Please add new accounts.")
             self.addAcc()
